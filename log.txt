@@ -1,0 +1,676 @@
+   Compiling bootloader v0.1.0 (/home/dom/Projects/stm32-bl)
+warning: unused import: `usb`
+  --> src/main.rs:12:51
+   |
+12 | use embassy_stm32::{bind_interrupts, peripherals, usb};
+   |                                                   ^^^
+   |
+   = note: `#[warn(unused_imports)]` on by default
+
+warning: unreachable statement
+   --> src/main.rs:161:5
+    |
+159 |         loop {}
+    |         ------- any code following this expression is unreachable
+160 |     }
+161 |     cortex_m::asm::udf();
+    |     ^^^^^^^^^^^^^^^^^^^^^ unreachable statement
+    |
+    = note: `#[warn(unreachable_code)]` on by default
+
+warning: `bootloader` (bin "bootloader") generated 2 warnings (run `cargo fix --bin "bootloader"` to apply 1 suggestion)
+    Finished `release` profile [optimized + debuginfo] target(s) in 1.53s
+     Running `probe-rs run target/thumbv8m.main-none-eabi/release/bootloader`
+     Finished in 1.52s
+INFO  Bootloader started
+└─ bootloader::__cortex_m_rt_main @ src/main.rs:29  
+TRACE BDCR ok: 0c008200
+└─ embassy_stm32::rcc::bd::{impl#3}::init @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-stm32/src/rcc/bd.rs:216 
+DEBUG rcc: Clocks { audioclk: MaybeHertz(0), hclk1: MaybeHertz(160000000), hclk2: MaybeHertz(160000000), hclk3: MaybeHertz(160000000), hse: MaybeHertz(0), hsi: MaybeHertz(16000000), hsi48: MaybeHertz(48000000), lse: MaybeHertz(0), lsi: MaybeHertz(32000), msik: MaybeHertz(4000000), pclk1: MaybeHertz(160000000), pclk1_tim: MaybeHertz(160000000), pclk2: MaybeHertz(160000000), pclk2_tim: MaybeHertz(160000000), pclk3: MaybeHertz(160000000), pll1_p: MaybeHertz(0), pll1_q: MaybeHertz(0), pll2_p: MaybeHertz(0), pll2_q: MaybeHertz(0), pll2_r: MaybeHertz(0), pll3_p: MaybeHertz(0), pll3_q: MaybeHertz(0), rtc: MaybeHertz(32000), sys: MaybeHertz(160000000) }
+└─ embassy_stm32::rcc::set_freqs @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-stm32/src/rcc/mod.rs:71  
+TRACE Trace
+└─ bootloader::__cortex_m_rt_main @ src/main.rs:62  
+TRACE ACTIVE: 0x10000 - 0x80000
+└─ embassy_boot::boot_loader::{impl#2}::from_linkerfile_blocking @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-boot/src/boot_loader.rs:109 
+TRACE DFU: 0x0 - 0x72000
+└─ embassy_boot::boot_loader::{impl#2}::from_linkerfile_blocking @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-boot/src/boot_loader.rs:116 
+TRACE STATE: 0xe000 - 0x10000
+└─ embassy_boot::boot_loader::{impl#2}::from_linkerfile_blocking @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-boot/src/boot_loader.rs:123 
+TRACE DFU: 0x0 - 0x72000
+└─ embassy_boot::firmware_updater::blocking::{impl#0}::from_linkerfile_blocking @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-boot/src/firmware_updater/blocking.rs:68  
+TRACE STATE: 0xe000 - 0x10000
+└─ embassy_boot::firmware_updater::blocking::{impl#0}::from_linkerfile_blocking @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-boot/src/firmware_updater/blocking.rs:75  
+TRACE Adding DFU interface to USB device
+└─ embassy_usb_dfu::dfu::usb_dfu @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-dfu/src/dfu.rs:192 
+INFO  USB: config_descriptor used: 35
+└─ embassy_usb::builder::{impl#1}::build @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb/src/builder.rs:221 
+INFO  USB: bos_descriptor used: 40
+└─ embassy_usb::builder::{impl#1}::build @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb/src/builder.rs:222 
+INFO  USB: msos_descriptor used: 162
+└─ embassy_usb::builder::{impl#1}::build @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb/src/builder.rs:223 
+INFO  USB: control_buf size: 4096
+└─ embassy_usb::builder::{impl#1}::build @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb/src/builder.rs:224 
+TRACE allocating type=Control mps=64 interval_ms=0, dir=Out
+└─ embassy_usb_synopsys_otg::{impl#7}::alloc_endpoint @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:351 
+TRACE   index=0
+└─ embassy_usb_synopsys_otg::{impl#7}::alloc_endpoint @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:407 
+TRACE allocating type=Control mps=64 interval_ms=0, dir=In
+└─ embassy_usb_synopsys_otg::{impl#7}::alloc_endpoint @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:351 
+TRACE   index=0
+└─ embassy_usb_synopsys_otg::{impl#7}::alloc_endpoint @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:407 
+TRACE start
+└─ embassy_usb_synopsys_otg::{impl#8}::start @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:466 
+INFO  Running USB
+└─ bootloader::__cortex_m_rt_main @ src/main.rs:122 
+TRACE usb: run
+└─ embassy_usb::{impl#1}::run::{async_fn#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb/src/lib.rs:274 
+TRACE Core id 00003000
+└─ embassy_stm32::usb::_version::{impl#3}::init @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-stm32/src/usb/otg.rs:328 
+TRACE Configured USB core
+└─ embassy_stm32::usb::_version::{impl#3}::init @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-stm32/src/usb/otg.rs:343 
+TRACE usb: bus detected
+└─ embassy_usb::{impl#2}::handle_bus_event::{async_fn#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb/src/lib.rs:481 
+TRACE usb: power detected
+└─ embassy_usb::{impl#2}::handle_bus_event::{async_fn#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb/src/lib.rs:482 
+TRACE Enabling USB bus
+└─ embassy_stm32::usb::_version::{impl#4}::enable::{async_fn#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-stm32/src/usb/otg.rs:381 
+TRACE enable
+└─ embassy_usb_synopsys_otg::{impl#10}::enable::{async_fn#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:964 
+TRACE usb: bus enabled
+└─ embassy_usb::{impl#2}::handle_bus_event::{async_fn#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb/src/lib.rs:485 
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+TRACE SETUP waiting
+└─ embassy_usb_synopsys_otg::{impl#17}::setup::{async_fn#0}::{closure#0} @ /home/dom/.cargo/git/checkouts/embassy-9312dcb0ed774b29/9d62fba/embassy-usb-synopsys-otg/src/lib.rs:1263
+ERROR DefaultHandler #73
+└─ bootloader::__cortex_m_rt_DefaultHandler @ src/main.rs:147 
+ERROR Panic: panicked at src/main.rs:150:5
+└─ bootloader::panic @ src/main.rs:157 
