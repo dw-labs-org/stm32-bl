@@ -1,0 +1,15 @@
+[target.'cfg(all(target_arch = "arm", target_os = "none"))']
+runner = ["probe-rs", "run"]
+
+[build]
+target = "thumbv8m.main-none-eabi"
+
+
+[env]
+DEFMT_LOG = "info"
+PROBE_RS_CHIP = "STM32U575VG"
+PROBE_RS_CONNECT_UNDER_RESET = "true"
+
+[profile.release]
+# Allows defmt to display log locations even in release
+debug = true
