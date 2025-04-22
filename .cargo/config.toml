@@ -6,7 +6,7 @@ target = "thumbv8m.main-none-eabi"
 
 
 [env]
-DEFMT_LOG = "info"
+DEFMT_LOG = "trace"
 PROBE_RS_CHIP = "STM32U575VG"
 PROBE_RS_CONNECT_UNDER_RESET = "true"
 

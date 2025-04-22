@@ -57,6 +57,10 @@ fn main() -> ! {
     for _ in 0..1000000 {
         cortex_m::asm::nop();
     }
+    #[cfg(feature = "defmt")]
+    {
+        defmt::trace!("Trace");
+    }
 
     let layout = Flash::new_blocking(p.FLASH).into_blocking_regions();
     let flash1 = Mutex::new(RefCell::new(layout.bank1_region));
@@ -113,6 +117,10 @@ fn main() -> ! {
         usb_dfu::<_, _, _, ResetImmediate, 4096>(&mut builder, &mut state);
 
         let mut dev = builder.build();
+        #[cfg(feature = "defmt")]
+        {
+            defmt::info!("Running USB");
+        }
         embassy_futures::block_on(dev.run());
     }
 
